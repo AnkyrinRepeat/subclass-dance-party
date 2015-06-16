@@ -17,11 +17,16 @@ makeCreepyDancer.prototype.step = function(){
   // other effects you can use on a jQuery-wrapped html tag.
   var dancers = window.dancers
   var victim;
-  var shortestDistance;
+  var shortestDistance = 1000;
 
   for (var i = 0; i<dancers.length; i++) {
-    var distance = ((dancers[i].$node.css('top')-this.$node.css('top'))^2 +
-     ((dancers[i].$node.css('left')-this.$node.css('left'))^2)^0.5);
+
+    var dancerTop = Number(dancers[i].$node.css('top').slice(0, dancers[i].$node.css('top').length-2));
+    var thisTop = Number(this.$node.css('top').slice(0, this.$node.css('top').length-2));
+    var dancerLeft = Number(dancers[i].$node.css('left').slice(0, dancers[i].$node.css('left').length-2));
+    var thisLeft = Number(this.$node.css('left').slice(0, this.$node.css('left').length-2));
+
+    var distance = ((dancerTop-thisTop)^2 +(dancerLeft-thisLeft)^2)^0.5;
     if (distance < shortestDistance) {
       if(distance !== 0) {
         shortestDistance = distance;
@@ -29,4 +34,21 @@ makeCreepyDancer.prototype.step = function(){
       }
     }
   }
+
+  var newTop = function(){
+    if (thisTop > dancerTop) {
+      return (thisTop-dancerTop)/2 + dancerTop;
+    } else {
+      return (dancerTop-thisTop)/2 + thisTop;
+    }
+  }
+  var newLeft = function(){
+    if (thisLeft > dancerLeft) {
+      return (thisLeft-dancerLeft)/2 + dancerLeft
+    } else {
+      return (dancerLeft-thisLeft)/2 + thisLeft
+    }
+  }
+
+  this.setPosition(newTop.bind(this)(), newLeft.bind(this)())
 }

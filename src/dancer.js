@@ -8,7 +8,12 @@ var makeDancer = function(top, left, timeBetweenSteps){
 
   this.setPosition(top, left);
   this.step();
+  // this.mouseStuff.bind(this);
+  this.$node.mouseover(this.mouseStuff.bind(this));
+};
 
+makeDancer.prototype.mouseStuff = function () {
+  this.$node.css('border', '10px solid blue');
 };
 
 makeDancer.prototype.step = function(){
