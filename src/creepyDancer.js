@@ -1,6 +1,5 @@
 var makeCreepyDancer = function(top, left, timeBetweenSteps){
-  var dancer = this;
-  makeDancer.call(dancer, top, left, timeBetweenSteps);
+  makeDancer.call(this, top, left, timeBetweenSteps);
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
@@ -26,7 +25,7 @@ makeCreepyDancer.prototype.step = function(){
     var dancerLeft = Number(dancers[i].$node.css('left').slice(0, dancers[i].$node.css('left').length-2));
     var thisLeft = Number(this.$node.css('left').slice(0, this.$node.css('left').length-2));
 
-    var distance = ((dancerTop-thisTop)^2 +(dancerLeft-thisLeft)^2)^0.5;
+    var distance = Math.pow(Math.pow((dancerTop-thisTop), 2) + Math.pow((dancerLeft-thisLeft), 2), 0.5);
     if (distance < shortestDistance) {
       if(distance !== 0) {
         shortestDistance = distance;
@@ -49,6 +48,8 @@ makeCreepyDancer.prototype.step = function(){
       return (dancerLeft-thisLeft)/2 + thisLeft
     }
   }
+  var top = newTop.bind(this)();
+  var left = newLeft.bind(this)();
 
-  this.setPosition(newTop.bind(this)(), newLeft.bind(this)())
+  this.setPosition(top, left);
 }

@@ -25,5 +25,5 @@ makeSlidyDancer.prototype.step = function(){
 
 makeSlidyDancer.prototype.lineUp = function(top) {
   this.canMoveCrazy = false;
-  this.setPosition(top, '100px');
+  this.setPosition(top, 100);
 };

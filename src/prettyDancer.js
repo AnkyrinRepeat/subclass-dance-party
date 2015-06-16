@@ -10,7 +10,7 @@ makePrettyDancer.prototype = Object.create(makeDancer.prototype);
 makePrettyDancer.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
   var oldStep = makeDancer.prototype.step.bind(this);
-
+  this.border = this.$node.css('border');
   oldStep();
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
