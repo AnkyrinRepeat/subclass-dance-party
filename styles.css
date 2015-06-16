@@ -27,11 +27,80 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.classDancer {
   width: 100px;
   height: 100px;
   border-radius: 100%;
   background-size: contain;
 }
 
+.class0{
+  background-image: url("img/0.jpg");
+}
+.class1{
+  background-image: url("img/1.jpg");
+}
+.class2{
+  background-image: url("img/2.png");
+}
 
+.class3{
+  background-image: url("img/3.jpg");
+}
 
+.class4{
+  background-image: url("img/4.jpg");
+}
+.class5{
+  background-image: url("img/5.jpg");
+}
+.class6{
+  background-image: url("img/6.jpg");
+}
+.class7{
+  background-image: url("img/7.jpg");
+}
+.class8{
+  background-image: url("img/8.jpg");
+}
+.class9{
+  background-image: url("img/9.jpg");
+}
+.class10{
+  background-image: url("img/10.jpg");
+}
+.class11{
+  background-image: url("img/11.jpg");
+}
+.class12{
+  background-image: url("img/12.jpg");
+}
+.class13{
+  background-image: url("img/13.jpg");
+}
+.class14{
+  background-image: url("img/14.png");
+}
+.class15{
+  background-image: url("img/15.jpg");
+}
+.class16{
+  background-image: url("img/16.jpg");
+}
+.class17{
+  background-image: url("img/17.jpg");
+}
+.class18{
+  background-image: url("img/18.png");
+}
+.class19{
+  background-image: url("img/19.jpg");
+}
+.class20{
+  background-image: url("img/20.jpg");
+}
+.class21{
+  background-image: url("img/21.png");
+}
