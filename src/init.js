@@ -28,6 +28,17 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+  $(".lineUpDancers").on("click", function(event){
+    // debugger;
+    for(var i = 0; i < window.dancers.length; i++) {
+      // debugger;
+      window.dancers[i].lineUp(this.top);
+    }
   });
 });
+
+
 
