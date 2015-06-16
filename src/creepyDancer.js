@@ -11,12 +11,9 @@ makeCreepyDancer.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
   var oldStep = makeDancer.prototype.step.bind(this);
   oldStep();
-  // toggle() is a jQuery method to show/hide the <span> tag.
-  // See http://api.jquery.com/category/effects/ for this and
-  // other effects you can use on a jQuery-wrapped html tag.
-  var dancers = window.dancers
   var victim;
   var shortestDistance = 1000;
+  var dancers = window.dancers;
 
   for (var i = 0; i<dancers.length; i++) {
 
@@ -27,7 +24,7 @@ makeCreepyDancer.prototype.step = function(){
 
     var distance = Math.pow(Math.pow((dancerTop-thisTop), 2) + Math.pow((dancerLeft-thisLeft), 2), 0.5);
     if (distance < shortestDistance) {
-      if(distance !== 0) {
+      if(dancers[i] !== this) {
         shortestDistance = distance;
         victim = dancers[i]
       }
@@ -41,6 +38,7 @@ makeCreepyDancer.prototype.step = function(){
       return (dancerTop-thisTop)/2 + thisTop;
     }
   }
+
   var newLeft = function(){
     if (thisLeft > dancerLeft) {
       return (thisLeft-dancerLeft)/2 + dancerLeft

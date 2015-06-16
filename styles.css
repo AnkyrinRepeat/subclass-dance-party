@@ -23,8 +23,15 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+.dancer, .pretty, .crazy{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-size: contain;
 }
+
+
+

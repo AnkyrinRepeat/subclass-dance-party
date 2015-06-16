@@ -8,7 +8,6 @@ var makeDancer = function(top, left, timeBetweenSteps){
 
   this.setPosition(top, left);
   this.step();
-  // this.mouseStuff.bind(this);
   this.$node.mouseover(this.mouseStuff.bind(this));
 };
 
@@ -19,9 +18,9 @@ makeDancer.prototype.mouseStuff = function () {
 makeDancer.prototype.step = function(){
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
-  var otherThanThis = this;
+  var context = this;
   setTimeout(function(){
-    otherThanThis.step();
+    context.step();
   }
     , this.timeBetweenSteps);
 };
@@ -38,7 +37,7 @@ makeDancer.prototype.setPosition = function(top, left){
 };
 
 makeDancer.prototype.lineUp = function(top) {
-  // debugger;
+  // Use set position to cause all dancers to line up on the left side of the screen.
   this.setPosition(top, '100px');
 };
 

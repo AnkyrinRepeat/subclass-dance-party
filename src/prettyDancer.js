@@ -1,8 +1,6 @@
 var makePrettyDancer = function(top, left, timeBetweenSteps){
   makeDancer.call(this, top, left, timeBetweenSteps);
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-  // so we must keep a copy of the old version of this function
-  this.dancing = false;
+  this.$node.addClass('pretty')
 
 };
 
@@ -12,11 +10,13 @@ makePrettyDancer.prototype.step = function(){
   var oldStep = makeDancer.prototype.step.bind(this);
   this.border = this.$node.css('border');
   oldStep();
-  // toggle() is a jQuery method to show/hide the <span> tag.
-  // See http://api.jquery.com/category/effects/ for this and
-  // // other effects you can use on a jQuery-wrapped html tag.
-  // this.$node.toggle();
+
+  //Change the color of the dancer to a random color
   this.$node.css('border', '10px solid #' + (Math.random() * 0xFFFFFF<<0).toString(16));
+
+  this.$node.fadeToggle();
+  $('.pretty').animate({borderWidth:'15px'})
+
 
 }
 
